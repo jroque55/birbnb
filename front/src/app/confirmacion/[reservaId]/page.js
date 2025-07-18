@@ -5,6 +5,7 @@ import axios from "axios";
 import {Box,Typography,Paper,Grid,Chip,Divider,List,ListItem,ListItemIcon,ListItemText,Avatar,} from "@mui/material";
 import {TaskAlt as TaskAltIcon,Home as HomeIcon,CalendarToday as CalendarIcon,People as PeopleIcon,MonetizationOn as PriceIcon,LocationOn as LocationIcon,CheckCircle as CheckIcon,AccessTime as TimeIcon,} from "@mui/icons-material";
 import Loading from "@/app/components/loading/loading";
+import Image from "next/image";
 
 export default function ConfirmacionPage() {
   const { reservaId } = useParams();
@@ -92,7 +93,7 @@ export default function ConfirmacionPage() {
 
               {reserva.alojamiento?.fotos?.[0]?.path && (
                 <Box sx={{ mt: 2, mb: 3 }}>
-                  <img
+                  <Image
                     src={reserva.alojamiento.fotos[0].path}
                     alt={reserva.alojamiento.nombre}
                     style={{
