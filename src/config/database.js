@@ -1,26 +1,27 @@
+import mongoose from 'mongoose';
+import dotenv from "dotenv";
+dotenv.config({path:"./.env.local"}); 
 
-import { MongoClient, ServerApiVersion } from 'mongodb';
-const uri = "mongodb+srv://jroque:1NbW2F8F14VUChs0@birbnb.kmceoug.mongodb.net/?retryWrites=true&w=majority&appName=birbnb";
+export class MongoDBCliente {
+    static async connect() {
+        try {
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-export const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+            const localURI = process.env.MONGO_URL || 'mongodb://localhost:27017/birbnb';
 
-async function connect() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+            const conn = await mongoose.connect(localURI);
+            console.log(`MongoDB conectado: ${conn.connection.host}, `);
+        } catch (error) {
+            console.error(`Error de conexión: ${error.message}`);
+            process.exit(1);
+        }
+    }
 }
-connect().catch(console.dir);
+
+export class MongoDBTest {
+    static async connect() {
+        const localURI = process.env.MONGO_URL || 'mongodb://localhost:27017/birbnb';
+
+
+        const conn = await mongoose.connect(localURI);
+    }
+}
