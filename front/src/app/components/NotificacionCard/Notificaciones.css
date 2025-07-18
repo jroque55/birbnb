@@ -1,0 +1,23 @@
+.notificacion-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3px;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #999;
+}
+
+.notificacion-content {
+  flex-grow: 1;
+  margin-right: 16px;
+}
+
+.notificacion-container.no-leida {
+  background-color: #f0f7ff;
+  border-left: 3px solid #1976d2;
+}
+
+.notificacion-container.leida {
+  opacity: 0.8;
+  background-color: #f9f9f9;
+}

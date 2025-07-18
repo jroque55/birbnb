@@ -1,0 +1,225 @@
+.datos-bg {
+  background: rgb(243, 242, 242);
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.nombre-hotel {
+  padding: 30px 0 20px 50px;
+}
+
+.detalles {
+  display: flex;
+  flex-direction: wrap;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: wrap;
+}
+
+.datos-alojamiento {
+  display: flex;
+  flex-direction: wrap;
+  margin: 20px;
+}
+
+.descripcion {
+  margin-right: 20px;
+}
+
+.titulo-seccion {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+}
+
+.subtitulo {
+  margin: 13px;
+}
+
+.horarios-container {
+  padding: 10px;
+}
+
+.lista-caracteristicas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.caracteristica-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.horario-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.icono-horario {
+  color: #ff385c;
+}
+
+.contenedor-principal {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.seccion-izquierda {
+  flex: 2;
+}
+
+.seccion-derecha {
+  justify-content: center;
+  flex: 1;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+}
+
+.galeria-fotos {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.foto-principal {
+  flex: 2;
+  border-radius: 12px;
+}
+
+.fotos-secundarias {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.reserva-box {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.datos-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.a-rellenar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  font-size: 15px;
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+  gap: 15px;
+  font-family: sans-serif;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.a-rellenar:hover {
+  border-color: #ff385c;
+  box-shadow: 0 4px 12px rgba(255, 56, 92, 0.2);
+}
+
+.reserva-button-container {
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.button-reserva {
+  width: 100%;
+  max-width: 400px;
+  height: 60px;
+  background: linear-gradient(to right, #ff385c, #e61e4d);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(255, 56, 92, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.5rem 5rem 0.5rem 5rem;
+}
+
+.dropdown-row {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  width: 40%;
+  justify-content: center;
+}
+
+.caracs {
+  padding: 30px 0px 20px 30px;
+}
+
+@media (max-width: 1024px) {
+  .contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .seccion-izquierda {
+    justify-content: center;
+  }
+
+  .seccion-derecha {
+    justify-content: center;
+  }
+
+  .datos-alojamiento {
+    margin: 10px;
+  }
+
+  .galeria-fotos {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .foto-principal {
+    width: 300px;
+    height: 250px;
+  }
+
+  .contenedor-principal {
+    flex-direction: column;
+  }
+
+  .detalles {
+    display: flex;
+    flex-direction: column;
+  }
+}

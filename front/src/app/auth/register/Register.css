@@ -1,0 +1,70 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 588px;
+  max-height: 100%;
+  width: 100%;
+  align-items: center;
+  padding: 60px;
+  background: rgb(232, 234, 238);
+  font-family: sans-serif;
+  min-height: 90vh;
+
+  > .title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px;
+
+    span {
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: 50px;
+      font-weight: bold;
+      font-family: "Fleur De Leah", cursive;
+    }
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+@media (max-width: 500px) {
+  .root {
+    padding: 20px;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form-container form {
+    gap: 12px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

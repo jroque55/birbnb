@@ -1,0 +1,320 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Birbnb API",
+    "version": "2.0.0",
+    "description": "Documentación Swagger para el backend de Birbnb"
+  },
+  "paths": {
+    "/alojamientos": {
+      "get": {
+        "summary": "Obtener todos los alojamientos",
+        "responses": {
+          "200": {
+            "description": "Lista de alojamientos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Alojamiento" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear un nuevo alojamiento",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Alojamiento" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Alojamiento creado" }
+        }
+      }
+    },
+    "/alojamientos/{id}": {
+      "delete": {
+        "summary": "Eliminar un alojamiento",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Alojamiento eliminado" }
+        }
+      }
+    },
+    "/notificaciones/{usuarioId}/no-leidas": {
+      "get": {
+        "summary": "Obtener notificaciones no leídas de un usuario",
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de notificaciones no leídas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Notificacion" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notificaciones/{usuarioId}/leidas": {
+      "get": {
+        "summary": "Obtener notificaciones leídas de un usuario",
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de notificaciones leídas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Notificacion" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notificaciones/marcarComoLeida/{notificacionId}": {
+      "patch": {
+        "summary": "Marcar una notificación como leída",
+        "parameters": [
+          {
+            "name": "notificacionId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Notificación marcada como leída" }
+        }
+      }
+    },
+    "/reservas/crearReserva/{reserva}": {
+      "get": {
+        "summary": "Crear reserva desde string serializado",
+        "parameters": [
+          {
+            "name": "reserva",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Reserva creada" }
+        }
+      }
+    },
+    "/reservas/cancelarReserva/{reservaId}": {
+      "patch": {
+        "summary": "Cancelar una reserva",
+        "parameters": [
+          {
+            "name": "reservaId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Reserva cancelada" }
+        }
+      }
+    },
+    "/reservas/obtenerReservasDeUsuario/{usuario}": {
+      "get": {
+        "summary": "Obtener reservas de un usuario",
+        "parameters": [
+          {
+            "name": "usuario",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de reservas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Reserva" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario": {
+      "get": {
+        "summary": "Obtener todos los usuarios",
+        "responses": {
+          "200": {
+            "description": "Lista de usuarios",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Usuario" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear un nuevo usuario",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Usuario" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Usuario creado" }
+        }
+      }
+    },
+    "/usuario/{id}": {
+      "delete": {
+        "summary": "Eliminar un usuario",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Usuario eliminado" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Direccion": {
+        "type": "object",
+        "properties": {
+          "calle": { "type": "string" },
+          "altura": { "type": "integer", "minimum": 1, "maximum": 6000 },
+          "ciudad": { "type": "string" },
+          "lat": { "type": "number" },
+          "long": { "type": "number" }
+        },
+        "required": ["ciudad", "lat", "long"]
+      },
+      "Alojamiento": {
+        "type": "object",
+        "properties": {
+          "idAnfitrion": { "type": "string" },
+          "nombre": { "type": "string" },
+          "descripcion": { "type": "string" },
+          "precioPorNoche": { "type": "number" },
+          "moneda": { "type": "string" },
+          "horarioCheckIn": { "type": "string" },
+          "horarioCheckOut": { "type": "string" },
+          "direccion": { "$ref": "#/components/schemas/Direccion" },
+          "cantHuespedesMax": { "type": "integer", "minimum": 1 },
+          "reservas": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "caracteristicas": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["idAnfitrion", "nombre", "precioPorNoche", "moneda", "direccion", "cantHuespedesMax", "caracteristicas"]
+      },
+      "Notificacion": {
+        "type": "object",
+        "properties": {
+          "mensaje": { "type": "string" },
+          "usuario": { "type": "string" },
+          "fechaAlta": { "type": "string", "format": "date-time" }
+        },
+        "required": ["mensaje", "usuario", "fechaAlta"]
+      },
+      "Pais": {
+        "type": "object",
+        "properties": {
+          "nombre": { "type": "string" }
+        },
+        "required": ["nombre"]
+      },
+      "RangoFechas": {
+        "type": "object",
+        "properties": {
+          "fechaInicio": { "type": "string", "format": "date-time" },
+          "fechaFin": { "type": "string", "format": "date-time" }
+        },
+        "required": ["fechaInicio", "fechaFin"]
+      },
+      "Reserva": {
+        "type": "object",
+        "properties": {
+          "fechaAlta": { "type": "string", "format": "date-time" },
+          "huespedReservador": { "type": "string" },
+          "cantHuespedes": { "type": "integer", "minimum": 1 },
+          "alojamiento": { "type": "string" },
+          "rangoDeFechas": { "$ref": "#/components/schemas/RangoFechas" },
+          "estado": { "type": "string" }
+        },
+        "required": ["huespedReservador", "cantHuespedes", "alojamiento", "rangoDeFechas"]
+      },
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "nombre": { "type": "string", "minLength": 3 },
+          "notificaciones": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "email": { "type": "string" },
+          "tipo": { "type": "string" }
+        },
+        "required": ["nombre", "email", "tipo"]
+      }
+    }
+  }
+}
+

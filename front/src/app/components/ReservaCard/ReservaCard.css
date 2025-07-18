@@ -1,0 +1,59 @@
+:root {
+  --text-color: #333;
+  --light-gray: #f7f7f7;
+  --border-color: #e0e0e0;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+.reserva-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+}
+
+.reserva-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.reserva-content {
+  padding: 1.5rem;
+}
+
+
+.reserva-title {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.reserva-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.reserva-icon {
+  margin-right: 0.75rem;
+  color: var(--primary-color);
+  min-width: 20px;
+}
+
+.reserva-status {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+

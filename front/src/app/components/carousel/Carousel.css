@@ -1,0 +1,47 @@
+.products-carousel{
+  display: flex;
+  flex-wrap: wrap;
+  /* overflow-x: hidden; */
+  justify-content: center;
+  height: 700px;
+  max-height: 100%;
+}
+
+.carousel {
+  background-color: rgb(232, 234, 238);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alojamientos-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.ventajas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 14;
+  font-style: italic;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,sans-serif;
+  gap: 100px;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.ventajas-item {
+  max-width: 250px;
+}
+
+.ventajas-item h3,
+.ventajas-item p {
+  margin: 10px 0;
+}

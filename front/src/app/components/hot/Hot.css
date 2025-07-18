@@ -1,0 +1,28 @@
+.Hot-bg {
+  width: 100%;
+  margin: 0;
+  background: rgb(232, 234, 238);
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center; /* Cambiado de left a center */
+  padding: 20px 0; /* Simplificado el padding */
+  display: flex;
+  justify-content: center; /* Cambiado de flex-start a center */
+  align-items: center; /* Cambiado de left a center */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Versión para móviles */
+@media (max-width: 768px) {
+  .Hot-bg {
+    font-size: 20px; /* Tamaño de fuente más pequeño en móviles */
+    padding: 15px 10px; /* Padding reducido */
+  }
+}
+
+/* Versión para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .Hot-bg {
+    font-size: 22px;
+  }
+}

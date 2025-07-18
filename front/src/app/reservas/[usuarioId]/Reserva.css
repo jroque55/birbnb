@@ -1,0 +1,65 @@
+:root {
+  --text-color: #333;
+  --light-gray: #f7f7f7;
+  --border-color: #e0e0e0;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+.reservas-container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.reserva-title {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.reservas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.error-message, .empty-message {
+  padding: 2rem;
+  text-align: center;
+}
+
+.empty-message {
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1.2rem;
+  color: #666;
+}
+@media (max-width: 768px) {
+  .reservas-container {
+    padding: 1rem;
+  }
+  
+  .reservas-title {
+    font-size: 1.5rem;
+  }
+  
+  .reservas-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .reserva-content {
+    padding: 1.25rem;
+  }
+}
+
+

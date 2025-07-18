@@ -1,0 +1,44 @@
+.notificaciones-container {
+    font-family: sans-serif;
+    height: 700px;
+}
+
+.notificaciones-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.empty-state-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.empty-state-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .notificaciones-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .empty-state-actions {
+    flex-direction: column;
+  }
+}

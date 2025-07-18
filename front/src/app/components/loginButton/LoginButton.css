@@ -1,0 +1,10 @@
+.button-login {
+  color: rgb(235, 233, 233) !important;
+  background-color: rgb(0, 113, 194) !important;
+  min-width: auto !important;
+  font-family: Arial !important;
+  font-weight: 700 !important;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px 0px #ddd;
+}

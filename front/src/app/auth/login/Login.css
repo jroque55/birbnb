@@ -1,0 +1,91 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 60px;
+  background: rgb(232, 234, 238);
+  font-family: sans-serif;
+  min-height: 90vh;
+
+    span {
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: 50px;
+      font-weight: bold;
+      font-family: "Fleur De Leah", cursive;
+    }
+  }
+
+.titulo {
+  justify-content: center;
+  font-size: 35px !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  margin-bottom: 10px !important;
+}
+
+.iniciar-sesion {
+  border-radius: 20px !important; 
+  margin-bottom: 10px !important;
+}
+
+.recordar {
+  margin: 0px 0 10px 5px;
+  color: rgba(41, 3, 97, 0.822);
+  cursor: pointer;
+}
+
+.registrarse {
+  font-size: 15px !important;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60%;
+  width: 460px !important;
+  padding: 30px 100px;
+  border-radius: 10px !important;
+  justify-content: center !important;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+@media (max-width: 768px) {
+  .root {
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .form-container {
+    width: 350px !important;
+    padding: 20px;
+  }
+
+  .form-container form {
+    gap: 12px;
+  }
+
+  .actions {
+    flex-direction: column;
+
+  }
+  
+  .entrada {
+    width: 250px !important;
+  }
+
+}
