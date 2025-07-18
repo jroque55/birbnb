@@ -3,6 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { authContext } from "./AuthContext";
+const URI = process.env.PUBLIC_API_URL || "http://localhost3000"
 
 function UserSession({ children }) {
   const [user, setUser] = useState(null);
@@ -12,7 +13,7 @@ function UserSession({ children }) {
   const checkAuth = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:3000/auth/session", {
+      const res = await axios.get(URI+"/auth/session", {
         withCredentials: true,
       });
       if (res.data.user) {
@@ -33,7 +34,7 @@ function UserSession({ children }) {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:3000/auth/login",
+        URI+"/auth/login",
         { email, password },
         { withCredentials: true }
       );
@@ -50,7 +51,7 @@ function UserSession({ children }) {
   const logout = async () => {
     setLoading(true);
     try {
-      await axios.post("http://localhost:3000/auth/logout", null, {
+      await axios.post(URI+"/auth/logout", null, {
         withCredentials: true,
       });
       setUser(null);

@@ -7,7 +7,7 @@ import axios from "axios";
 import "./ReservaAnfitriones.css"
 import Loading from "@/app/components/loading/loading";
 import Pagination from "@/app/components/paginacion/paginacion";
-
+const URI = process.env.PUBLIC_API_URL || "http://localhost3000"
 
 export default function ReservaAnfitrion() {
   const router = useRouter()
@@ -42,7 +42,7 @@ export default function ReservaAnfitrion() {
           page: currentPage,
           limit: limit,
         };
-        const response = await axios.get(`http://localhost:3000/reservas/anfitriones/${anfitrionId}`,{params});
+        const response = await axios.get(URI+`/reservas/anfitriones/${anfitrionId}`,{params});
         setReservas(response.data.data || []);
         setPagination(
           response.data.pagination || {
@@ -62,7 +62,7 @@ export default function ReservaAnfitrion() {
 
   const handleAction = async (reservaId, action) => {
     try {
-      await axios.patch(`http://localhost:3000/reservas/${reservaId}/estado`, { 
+      await axios.patch(URI+`/reservas/${reservaId}/estado`, { 
         nuevoEstado: action.toUpperCase() 
       });
       

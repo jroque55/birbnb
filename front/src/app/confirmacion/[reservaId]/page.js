@@ -6,6 +6,7 @@ import {Box,Typography,Paper,Grid,Chip,Divider,List,ListItem,ListItemIcon,ListIt
 import {TaskAlt as TaskAltIcon,Home as HomeIcon,CalendarToday as CalendarIcon,People as PeopleIcon,MonetizationOn as PriceIcon,LocationOn as LocationIcon,CheckCircle as CheckIcon,AccessTime as TimeIcon,} from "@mui/icons-material";
 import Loading from "@/app/components/loading/loading";
 import Image from "next/image";
+const URI = process.env.PUBLIC_API_URL || "http://localhost3000"
 
 export default function ConfirmacionPage() {
   const { reservaId } = useParams();
@@ -17,7 +18,7 @@ export default function ConfirmacionPage() {
     const fetchReserva = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/reservas/${reservaId}`
+          URI+`/reservas/${reservaId}`
         );
         setReserva(response.data);
       } catch (err) {

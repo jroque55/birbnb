@@ -6,12 +6,13 @@ import axios from "axios";
 import Loading from "@/app/components/loading/loading";
 import NotificacionCard from "@/app/components/NotificacionCard/NotificacionCard";
 import NoEncontrado from "@/app/components/not_found/ContenidoNoEncontrado";
-import { Button, ButtonGroup } from "@mui/material";
+import { Button} from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import * as React from "react";
 import Pagination from "@/app/components/paginacion/paginacion";
+const URI = process.env.PUBLIC_API_URL || "http://localhost3000"
 
 export default function NotificacionesPage() {
   const router = useRouter()
@@ -64,7 +65,7 @@ export default function NotificacionesPage() {
           limit: limit,
         };
         const response = await axios.get(
-          `http://localhost:3000/notificaciones/${usuarioId}`,
+          URI+ `/notificaciones/${usuarioId}`,
           { params }
         );
         setNotificaciones(response.data.data || []);

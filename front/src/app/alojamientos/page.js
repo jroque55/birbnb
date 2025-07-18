@@ -10,6 +10,7 @@ import Pagination from "../components/paginacion/paginacion.js";
 import ContenidoNoEncontrado from "../components/not_found/ContenidoNoEncontrado.js";
 import "./page.css";
 import Navbar from "../components/navbar/Navbar.js";
+const URI = process.env.PUBLIC_API_URL || "http://localhost3000"
 
 const AlojamientosContent = () => {
   const searchParams = useSearchParams();
@@ -52,7 +53,7 @@ const AlojamientosContent = () => {
           limit: limit,
         };
 
-        const response = await axios.get("http://localhost:3000/alojamientos", {
+        const response = await axios.get(URI+"/alojamientos", {
           params,
         });
 

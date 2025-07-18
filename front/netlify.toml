@@ -1,6 +1,7 @@
 [build]
+  base = "front"
   command = "npm run build"
-  publish = "out"  # O ".next/static" para Next.js estático
+  publish = "out"
 
 [[redirects]]
   from = "/*"

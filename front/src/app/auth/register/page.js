@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import "./Register.css";
 import axios from "axios";
 import Loading from "@/app/components/loading/loading";
+const URI = process.env.PUBLIC_API_URL || "http://localhost3000"
 
 export default function RegisterContent() {
   const [email, setEmail] = useState("");
@@ -36,7 +37,7 @@ export default function RegisterContent() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/register",
+        URI+"/auth/register",
         { email, password, nombre, tipo },
         {
           withCredentials: true,

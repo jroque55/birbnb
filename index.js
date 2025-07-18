@@ -1,10 +1,9 @@
 import dotenv from "dotenv";
 dotenv.config(); 
-import cors from 'cors'
 
 import express from "express";
 import { Server } from "./server.js";
-import { MongoDBCliente } from "./src/config/database.js";
+import { client } from "./src/config/database.js";
 
 import { AlojamientoRepository } from "./src/models/repositories/alojamientoRepository.js";
 import { AlojamientoService } from "./src/services/alojamientoService.js";
@@ -26,9 +25,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const server = new Server(app, port);
 
-MongoDBCliente.connect();
-
-// Configuración de dependencias
+client.connect();
 
 const usuarioRepo = new UsuarioRepository();
 const usuarioService = new UsuarioService(usuarioRepo);
@@ -45,9 +42,6 @@ const reservaService = new ReservaService(reservaRepo, alojamientoRepo, usuarioR
 const notificacionController = new NotificacionController(notificacionService);
 const reservaController = new ReservaController(reservaService);
 
-
-
-// Registro de controladores en el servidor
 server.setController(AlojamientoController, alojamientoController);
 
 server.setController(ReservaController, reservaController);
@@ -59,6 +53,5 @@ routes.forEach(r => {
     server.addRoute(r)
 })
 
-// Configuración de rutas y lanzamiento
 server.configureRoutes();
 server.launch();

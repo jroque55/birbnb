@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken'
 import { UsuarioRepository } from '../models/repositories/usuarioRepository.js';
-//import { UsuarioModel } from '../models/schemas/usuarioSchema';
 
 export default async function handlerSession(req, res) {
 
@@ -13,7 +12,7 @@ export default async function handlerSession(req, res) {
       return res.status(200).json({ user: null });
     }
 
-    const decoded = jwt.verify(token, "tu_clave_secreta");
+    const decoded = jwt.verify(token, process.env.PRIVATE_TOKEN);
     
     const user = await usuarioRepo.findById(decoded.id);
     

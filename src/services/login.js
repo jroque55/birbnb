@@ -15,7 +15,7 @@ export default async function handlerLogin(req, res) {
     }
     const token = jwt.sign(
       { id: user._id, nombre: user.nombre },
-      "tu_clave_secreta",
+      process.env.PRIVATE_TOKEN,
       {
         expiresIn: "1h",
       }

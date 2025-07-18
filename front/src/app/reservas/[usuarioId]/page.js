@@ -12,6 +12,7 @@ import Loading from "@/app/components/loading/loading";
 import "./Reserva.css";
 import ContenidoNoEncontrado from "@/app/components/not_found/ContenidoNoEncontrado";
 import Pagination from "@/app/components/paginacion/paginacion";
+const URI = process.env.PUBLIC_API_URL || "http://localhost3000"
 
 export default function ReservasUsuarioPage() {
   const router = useRouter();
@@ -47,7 +48,7 @@ export default function ReservasUsuarioPage() {
           limit: limit,
         };
         const response = await axios.get(
-          `http://localhost:3000/reservas/usuarios/${usuarioId}`,
+          URI+`/reservas/usuarios/${usuarioId}`,
           { params }
         );
         setReservas(response.data.data || []);

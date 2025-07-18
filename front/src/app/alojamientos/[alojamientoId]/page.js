@@ -25,6 +25,8 @@ import "./AlojamientoDetail.css";
 import { authContext } from "@/app/AuthContext";
 import ContenidoNoEncontrado from "@/app/components/not_found/ContenidoNoEncontrado";
 
+const URI = process.env.PUBLIC_API_URL || "http://localhost3000"
+
 const AlojamientoDetalle = () => {
   const dropdownRef = useRef(null);
   const params = useParams();
@@ -67,7 +69,7 @@ const AlojamientoDetalle = () => {
       const fetchAlojamiento = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3000/alojamientos/${alojamientoId}`
+            URI + `alojamientos/${alojamientoId}`
           );
           if (!response.data) {
             throw new Error("Alojamiento no encontrado");
