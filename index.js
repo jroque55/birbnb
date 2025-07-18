@@ -3,7 +3,7 @@ dotenv.config();
 
 import express from "express";
 import { Server } from "./server.js";
-import { MongoDBCliente } from "./src/config/database.js";
+import { connectToDatabase} from "./src/config/database.js";
 
 import { AlojamientoRepository } from "./src/models/repositories/alojamientoRepository.js";
 import { AlojamientoService } from "./src/services/alojamientoService.js";
@@ -25,7 +25,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const server = new Server(app, port);
 
-MongoDBCliente.connect();
+await connectToDatabase()
 
 const usuarioRepo = new UsuarioRepository();
 const usuarioService = new UsuarioService(usuarioRepo);
