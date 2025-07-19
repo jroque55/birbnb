@@ -1,6 +1,6 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import dotenv from 'dotenv';
-dotenv.config({ path: './.env.local' });
+dotenv.config({ path: './.env' });
 
 const uri = process.env.MONGO_URL || "mongodb://localhost:27017/birbnb";
 
