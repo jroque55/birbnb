@@ -1,10 +1,8 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import dotenv from 'dotenv';
-dotenv.config({ path: './.env' });
 
 const uri = process.env.MONGO_URL || "mongodb://localhost:27017/birbnb";
 
-// Configuración del cliente
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -16,13 +14,11 @@ const client = new MongoClient(uri, {
 let database;
 
 export async function connectToDatabase() {
-  if (database) return database; // Reutiliza la conexión si existe
-  
+  if (database) return database; 
   try {
     await client.connect();
-    database = client.db('birbnb'); // Especifica el nombre de la BD
+    database = client.db('birbnb'); 
     
-    // Verifica la conexión
     await database.command({ ping: 1 });
     console.log("Conexión exitosa a MongoDB!");
     
@@ -33,7 +29,6 @@ export async function connectToDatabase() {
   }
 }
 
-// Manejo de cierre limpio
 process.on('SIGINT', async () => {
   await client.close();
   console.log('Conexión a MongoDB cerrada');
