@@ -1,5 +1,4 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
-import dotenv from 'dotenv';
 
 const uri = process.env.MONGO_URL || "mongodb://localhost:27017/birbnb";
 
@@ -19,6 +18,9 @@ export async function connectToDatabase() {
     await client.connect();
     database = client.db('birbnb'); 
     
+    console.log(process.env.MONGO_URL)
+    console.log(process.env.PRIVATE_TOKEN)
+
     await database.command({ ping: 1 });
     console.log("Conexión exitosa a MongoDB!");
     
