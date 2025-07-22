@@ -4,6 +4,7 @@ const uri = process.env.MONGO_URL || "mongodb://localhost:27017/birbnb";
 
 const client = new MongoClient(uri, {
   serverApi: {
+    tls:true,
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
